@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Tasks{% endblock title %}
+
+{% block content %}
+
+<a href="/logout">Logout</a>
+
+<table>
+    <caption>Tasks:</caption>
+    <tr>
+       <th>Title</th>
+       <th>Create Date</th>
+       <th>Deadline</th>
+       <th>Priority</th>
+       <th>State</th>
+    </tr>
+    <tr>
+       <td><a href="/task/12344321">task 1</a></td>
+       <td>Apr 11 2024, 12:50</td>
+       <td>Apr 20 2024, 12:50</td>
+       <td>Low</td>
+       <td>To Do</td>
+    </tr>
+    <tr>
+       <td><a href="/task/12344322">Fixing car</a></td>
+       <td>Apr 12 2024, 10:30</td>
+       <td>Apr 16 2024, 12:00</td>
+       <td>High</td>
+       <td>In Progress</td>
+    </tr>
+    <tr>
+       <td><a href="/task/12344323">Clean room</a></td>
+       <td>Apr 12 2024, 1:30</td>
+       <td>Apr 13 2024, 12:30</td>
+       <td>Normal</td>
+       <td>Done</td>
+    </tr>
+ </table>
+{% endblock content %}
+
+

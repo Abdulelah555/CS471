@@ -20,5 +20,13 @@ from . import views
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('',views.index,name='index')
+    path('',views.index),
+    path('tasks',views.tasks),
+    path('task/<int:bId>',views.task),
+    path('login',views.login),
+    path('logout',views.logout),
+    path('register',views.register),
+    path('create',views.create),
+    path('edit/<int:bId>',views.edit),
+    path('delete/<int:bId>',views.delete)
 ]
