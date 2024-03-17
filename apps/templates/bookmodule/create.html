@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Create Task{% endblock title %}
+
+{% block content %}
+<form>
+   <ul>
+    <i><label for="title">Title:</label></i>
+    <ul>
+        <li><input type="text" id="title" name="title"></li>   
+    </ul>
+    <i><label for="deadline">Deadline:</label></i>
+    <ul>
+        <li><input type="datetime-local" id="deadline" name="deadline"></li>   
+    </ul>
+    <i><label for="priority">Priority:</label></i>
+    <ul>
+        <li>
+            <select id="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="high">High</option>
+            <option value="normal">Normal</option>
+          </select>
+        </li> 
+    </ul>
+    <i><label for="state">State:</label></i>
+    <ul>
+        <li>
+            <select id="state" name="state">
+            <option value="toDo">To Do</option>
+            <option value="inProgress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </li> 
+    </ul>
+</ul>
+<button type="submit" formaction="/tasks">Create Task</button>
+
+  </form>
+
+{% endblock content %}

@@ -4,12 +4,33 @@
 
 {% block content %}
 <h1> {{task_id}}</h1>
+
+
+
+
+
+
 <ul>
-    <li>task 1</li>
-    <li>Apr 11 2024, 12:50</li>
-    <li>Apr 20 2024, 12:50</li>
-    <li>Low</li>
-    <li>To Do</li>    
+    <i>Title</i>
+    <ul>
+        <li>task 1</li>   
+    </ul>
+    <i>Create Date</i>
+    <ul>
+        <li>Apr 11 2024, 12:50</li>   
+    </ul>
+    <i>Deadline</i>
+    <ul>
+        <li>Apr 20 2024, 12:50</li> 
+    </ul>
+    <i>Priority</i>
+    <ul>
+        <li>Low</li>
+    </ul>
+    <i>State</i>
+    <ul>
+        <li>To Do</li> 
+    </ul>  
 </ul>
 <a href="/tasks">Go to tasks</a>
 {% endblock content %}

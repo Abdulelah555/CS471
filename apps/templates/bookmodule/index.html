@@ -1,14 +1,19 @@
-{% extends "layouts/base.html" %}
-
+{% extends "layouts/base2.html" %}
+{% load static %}
 {% block title %}Welcome{% endblock title %}
 
 {% block content %}
-<h1> website name</h1>
-
-<a href="/login">Login</a>
-<p></p>
-<a href="/register">Register</a>
-
-
-
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      iTask
+    </div>
+    <div class="w3-display-middle">
+      <h1 class="w3-jumbo w3-animate-top">iTask</h1>
+      <hr class="w3-border-grey" style="margin:auto;width:40%">
+      <p class="w3-large w3-center"><a href="/login">Login</a> or <a href="/register">Register</a></p>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large">
+      Powered by 
+    </div>
+  </div>
 {% endblock content %}
