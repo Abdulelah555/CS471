@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Edit Task{% endblock title %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+   <ul>
+    <i><label for="title">Title:</label></i>
+    <ul>
+        <li><input type="text" id="title" name="title" value="{{task.title}}"></li>   
+    </ul>
+    <i><label for="deadline">Deadline:</label></i>
+    <ul>
+        <li><input type="datetime-local" id="deadline" name="deadline" value='{{task.deadline|date:"Y-m-d H:i" }}'></li>   
+    </ul>
+    <i><label for="priority">Priority:</label></i>
+    <ul>
+        <li>
+            <select id="priority" name="priority" value="{{task.Priority}}">
+            <option value="low">Low</option>
+            <option value="high">High</option>
+            <option value="normal">Normal</option>
+          </select>
+        </li> 
+    </ul>
+    <i><label for="state">State:</label></i>
+    <ul>
+        <li>
+            <select id="state" name="state" value="{{task.State}}">
+            <option value="toDo" {% if task.State == "toDo" %} selected {% endif %}>To Do</option>
+            <option value="inProgress" {% if task.State == "inProgress" %} selected {% endif %}>In Progress</option>
+            <option value="done"{% if task.State == "done" %} selected {% endif %}>Done</option>
+          </select>
+        </li> 
+    </ul>
+</ul>
+<button type="submit">Edit Task</button> {% if task.State == "done" %} selected {% endif %}
+  </form>
+
+{% endblock content %}

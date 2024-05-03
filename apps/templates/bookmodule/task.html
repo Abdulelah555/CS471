@@ -1,38 +1,32 @@
 {% extends "layouts/base2.html" %}
 
-{% block title %}Task : {{task_id}}{% endblock title %}
+{% block title %}Task : {{task.title}}{% endblock title %}
 
 {% block content %}
-<h1> {{task_id}}</h1>
-
-
-
-
-
 
 <ul>
     <i>Title</i>
     <ul>
-        <li>task 1</li>   
+        <li>{{task.title}}</li>   
     </ul>
     <i>Create Date</i>
     <ul>
-        <li>Apr 11 2024, 12:50</li>   
+        <li>{{task.createdate}}</li>   
     </ul>
     <i>Deadline</i>
     <ul>
-        <li>Apr 20 2024, 12:50</li> 
+        <li>{{task.deadline}}</li> 
     </ul>
     <i>Priority</i>
     <ul>
-        <li>Low</li>
+        <li>{{task.Priority}}</li>
     </ul>
     <i>State</i>
     <ul>
-        <li>To Do</li> 
+        <li>{{task.State}}</li> 
     </ul>  
 </ul>
-<a href="/tasks">Go to tasks</a>
+<a href="/tasks">Go to tasks</a> or <a href="/edit/{{task.id}}">edit task</a> 
 {% endblock content %}
 
 

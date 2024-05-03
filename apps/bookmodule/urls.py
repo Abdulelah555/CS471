@@ -20,13 +20,14 @@ from . import views
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('',views.index),
-    path('tasks',views.tasks),
-    path('task/<int:bId>',views.task),
-    path('login',views.login),
-    path('logout',views.logout),
-    path('register',views.register),
-    path('create',views.create),
-    path('edit/<int:bId>',views.edit),
-    path('delete/<int:bId>',views.delete)
+    path('',views.index, name="index"),
+    path('tasks',views.tasks, name="tasks"),
+    path('task/<int:tId>',views.task, name="task"),
+    path('login',views.login, name="login"),
+    path('logout',views.logout, name="logout"),
+    path('register',views.register, name="register"),
+    path('create',views.create, name="create"),
+    path('edit/<int:tId>',views.edit, name="edit"),
+    path('delete/<int:bId>',views.delete, name="delete")
+
 ]

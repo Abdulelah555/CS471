@@ -3,7 +3,8 @@
 {% block title %}Create Task{% endblock title %}
 
 {% block content %}
-<form>
+<form method="post">
+  {% csrf_token %}
    <ul>
     <i><label for="title">Title:</label></i>
     <ul>
@@ -34,7 +35,7 @@
         </li> 
     </ul>
 </ul>
-<button type="submit" formaction="/tasks">Create Task</button>
+<button type="submit">Create Task</button>
 
   </form>
 
