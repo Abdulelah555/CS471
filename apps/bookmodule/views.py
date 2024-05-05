@@ -39,7 +39,8 @@ def create(request):
         taskobj = Task(title = request.POST.get('title'),
                                       deadline = request.POST.get('deadline'),
                                       Priority = request.POST.get('priority'),
-                                      State = request.POST.get('state'))
+                                      State = request.POST.get('state'),
+                                      description = request.POST.get('description'))
         taskobj.save()
 
         return redirect('tasks')
@@ -54,6 +55,7 @@ def edit(request,tId):
         task.deadline = request.POST.get('deadline')
         task.Priority = request.POST.get('priority')
         task.State = request.POST.get('state')
+        task.description = request.POST.get('description')
         task.save()
         return redirect('task', tId = task.id )
     

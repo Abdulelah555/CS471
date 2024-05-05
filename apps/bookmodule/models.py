@@ -7,4 +7,5 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     Priority = models.CharField(max_length = 50)
     State = models.CharField(max_length = 50)
+    description = models.CharField(max_length = 500)
     
