@@ -11,6 +11,10 @@ def index(request):
 
     return render(request, 'bookmodule/index.html')
 
+def myprofile(request):
+# render the appropriate template for this request
+
+    return render(request, 'registration/myprofile.html')
 def tasks(request):
 # render the appropriate template for this request
     Tasks = Task.objects.all()
@@ -26,20 +30,6 @@ def task(request, tId):
 
     return render(request, 'bookmodule/task.html', {'task': task, 'checklist': checklist,'checklist_count':checklist_count,'checklist_done_count':checklist_done_count})
 
-def login(request):
-# render the appropriate template for this request
-
-    return render(request, 'bookmodule/login.html')
-
-def logout(request):
-# render the appropriate template for this request
-
-    return render(request, 'bookmodule/logout.html')
-
-def register(request):
-# render the appropriate template for this request
-
-    return render(request, 'bookmodule/register.html')
 
 def create(request):
 # render the appropriate template for this request
