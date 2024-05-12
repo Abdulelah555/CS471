@@ -31,6 +31,26 @@
     </ul>
 </ul>
 <a href="/tasks">Go to tasks</a> or <a href="/edit/{{task.id}}">edit task</a> 
+
+<table>
+    <caption>Check List:</caption>
+    <tr>
+       <th>Title</th>
+       <th>Description</th>
+       <th>Done ?</th>
+       <th>edit</th>
+       <th>delete</th>
+    {% for item in checklist %}
+    <tr>
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td><input name="done" type="checkbox" disabled {% if item.done == "1" %}checked{% endif %} ></td>
+        <td><a href="/editchecklist/{{task.id}}/{{item.id}}">edit</a></td>
+        <td></td>
+    </tr>
+    {% endfor %}
+ </table>
+ <a href="/createchecklist/{{task.id}}">add</a>
 {% endblock content %}
 
 

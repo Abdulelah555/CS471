@@ -28,6 +28,8 @@ urlpatterns = [
     path('register',views.register, name="register"),
     path('create',views.create, name="create"),
     path('edit/<int:tId>',views.edit, name="edit"),
-    path('delete/<int:bId>',views.delete, name="delete")
+    path('delete/<int:bId>',views.delete, name="delete"),
+    path('createchecklist/<int:tId>',views.createchecklist, name="createchecklist"),
+    path('editchecklist/<int:tId>/<int:cId>',views.editchecklist, name="editchecklist")
 
 ]
