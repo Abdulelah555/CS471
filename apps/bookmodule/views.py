@@ -14,14 +14,17 @@ def index(request):
 def tasks(request):
 # render the appropriate template for this request
     Tasks = Task.objects.all()
+    
     return render(request, 'bookmodule/tasks.html',{'Tasks': Tasks})
 
 
 def task(request, tId):
     task = Task.objects.get(id=tId)
+    checklist_count = CheckList.objects.filter(task=task).count()
+    checklist_done_count = CheckList.objects.filter(task=task,done="1").count()
     checklist = CheckList.objects.filter(task = task)
 
-    return render(request, 'bookmodule/task.html', {'task': task, 'checklist': checklist})
+    return render(request, 'bookmodule/task.html', {'task': task, 'checklist': checklist,'checklist_count':checklist_count,'checklist_done_count':checklist_done_count})
 
 def login(request):
 # render the appropriate template for this request
