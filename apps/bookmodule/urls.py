@@ -15,22 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    path("admin/", admin.site.urls),
-    path("accounts/", include("accounts.urls")),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path('',views.index, name="index"),
-    path('myprofile',views.myprofile, name="myprofile"),
-    path('tasks',views.tasks, name="tasks"),
-    path('task/<int:tId>',views.task, name="task"),
-    path('create',views.create, name="create"),
-    path('edit/<int:tId>',views.edit, name="edit"),
-    path('delete/<int:bId>',views.delete, name="delete"),
-    path('createchecklist/<int:tId>',views.createchecklist, name="createchecklist"),
-    path('editchecklist/<int:tId>/<int:cId>',views.editchecklist, name="editchecklist")
-
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', views.index, name='index'),
+    path('myprofile/', views.myprofile, name='myprofile'),
+    path('tasks/', views.tasks, name='tasks'),
+    path('task/<int:tId>/', views.task, name='task'),
+    path('create/', views.create, name='create'),
+    path('edit/<int:tId>/', views.edit, name='edit'),
+    path('createchecklist/<int:tId>/', views.createchecklist, name='createchecklist'),
+    path('editchecklist/<int:tId>/<int:cId>/', views.editchecklist, name='editchecklist'),
 ]
