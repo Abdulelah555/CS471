@@ -80,3 +80,9 @@ def editchecklist(request,tId,cId):
     form = CheckListForm(instance=checklist)
     return render(request, 'bookmodule/editchecklist.html', {'form':form})
 
+def delete_checklist(request, tId, cId):
+    checklist_item = get_object_or_404(CheckList, id=cId)
+    if request.method == 'POST':
+        checklist_item.delete()
+        return redirect('task', tId=tId)
+    return render(request, 'bookmodule/delete_checklist.html', {'checklist_item': checklist_item, 'task_id': tId})

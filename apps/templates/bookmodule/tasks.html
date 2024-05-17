@@ -24,7 +24,7 @@
        <td>{{t.Priority}}</td>
        <td>{{t.State}}</td>
        <td>
-         <form action="{% url 'delete' t.id %}" method="post">
+         <form action="{% url 'delete' t.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this checklist item?')">
              {% csrf_token %}
              <button type="submit">Delete</button>
          </form>

@@ -32,7 +32,7 @@
 </ul>
 <a href="/tasks">Go to tasks</a> or <a href="/edit/{{task.id}}">edit task</a> 
 
-<form action="{% url 'delete' task.id %}" method="post">
+<form action="{% url 'delete' task.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this checklist item?')">
     {% csrf_token %}
     <button type="submit">Delete Task</button>
 </form>
@@ -51,7 +51,12 @@
         <td>{{item.description}}</td>
         <td><input name="done" type="checkbox" disabled {% if item.done == "1" %}checked{% endif %} ></td>
         <td><a href="/editchecklist/{{task.id}}/{{item.id}}">edit</a></td>
-        <td></td>
+        <td>
+            <form action="{% url 'delete_checklist' task.id item.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this checklist item?')">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </td>
     </tr>
     {% endfor %}
  </table>
