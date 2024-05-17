@@ -32,6 +32,11 @@
 </ul>
 <a href="/tasks">Go to tasks</a> or <a href="/edit/{{task.id}}">edit task</a> 
 
+<form action="{% url 'delete' task.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Delete Task</button>
+</form>
+
 <table>
     <caption>Check List:           progression {{checklist_done_count}}/{{checklist_count}}</caption>
     <tr>

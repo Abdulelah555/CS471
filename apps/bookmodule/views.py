@@ -1,9 +1,6 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-from .models import Task
-from .forms import TaskForm
-from .models import CheckList
-from .forms import CheckListForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Task, CheckList
+from .forms import TaskForm, CheckListForm
 
 # Create your views here.
 def index(request):
@@ -52,11 +49,12 @@ def edit(request,tId):
     form = TaskForm(instance=task)
     return render(request, 'bookmodule/edit.html', {'form':form})
 
-def delete(request,bId):
-# render the appropriate template for this request
-
-    
-    return render(request, 'bookmodule/delete.html', {'task_id': bId})
+def delete(request, tId):
+    task = get_object_or_404(Task, id=tId)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('tasks')
+    return render(request, 'bookmodule/delete.html', {'task': task})
 
     
 def createchecklist(request,tId):

@@ -15,6 +15,7 @@
        <th>Deadline</th>
        <th>Priority</th>
        <th>State</th>
+       <th>Delete</th> 
     </tr>
       {% for t in Tasks %}
     <tr>
@@ -22,6 +23,12 @@
        <td>{{t.deadline}}</td>
        <td>{{t.Priority}}</td>
        <td>{{t.State}}</td>
+       <td>
+         <form action="{% url 'delete' t.id %}" method="post">
+             {% csrf_token %}
+             <button type="submit">Delete</button>
+         </form>
+     </td>
     </tr>
       {%endfor%}
     
