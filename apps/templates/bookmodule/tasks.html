@@ -3,36 +3,38 @@
 {% block title %}Tasks{% endblock title %}
 
 {% block content %}
-
-<a href="/logout">Logout</a>
-
-<a href="/create">create task</a>
-
-<table>
-    <caption>Tasks:</caption>
-    <tr>
-       <th>Title</th>
-       <th>Deadline</th>
-       <th>Priority</th>
-       <th>State</th>
-       <th>Delete</th> 
-    </tr>
-      {% for t in Tasks %}
-    <tr>
-       <td><a href="/task/{{t.id}}">{{t.title}}</a></td>
-       <td>{{t.deadline}}</td>
-       <td>{{t.Priority}}</td>
-       <td>{{t.State}}</td>
-       <td>
-         <form action="{% url 'delete' t.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this checklist item?')">
-             {% csrf_token %}
-             <button type="submit">Delete</button>
-         </form>
-     </td>
-    </tr>
-      {%endfor%}
-    
- </table>
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <a href="/logout" class="btn btn-secondary mb-3">Logout</a>
+        <a href="/create" class="btn btn-primary mb-3">Create Task</a>
+        <p>Tasks:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Deadline</th>
+                    <th>Priority</th>
+                    <th>State</th>
+                    <th>Delete</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in Tasks %}
+                    <tr>
+                        <td><a href="/task/{{ t.id }}">{{ t.title }}</a></td>
+                        <td>{{ t.deadline }}</td>
+                        <td>{{ t.Priority }}</td>
+                        <td>{{ t.State }}</td>
+                        <td>
+                            <form action="{% url 'delete' t.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this task?')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock content %}
-
-
