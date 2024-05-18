@@ -23,6 +23,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
+    path('privacypolicy/', views.privacypolicy, name='privacypolicy'),
     path('myprofile/', views.myprofile, name='myprofile'),
     path('tasks/', views.tasks, name='tasks'),
     path('task/<int:tId>/', views.task, name='task'),

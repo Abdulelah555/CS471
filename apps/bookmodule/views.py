@@ -10,6 +10,9 @@ def index(request):
 def about(request):
     return render(request, 'bookmodule/about.html')
 
+def privacypolicy(request):
+    return render(request, 'bookmodule/privacypolicy.html')
+
 @login_required
 def myprofile(request):
     return render(request, 'registration/myprofile.html')
