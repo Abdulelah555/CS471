@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Search Results{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Search Results for "{{ query }}"</h2>
+    {% if tasks %}
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item">
+                    <a href="{% url 'task' task.id %}">{{ task.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks found matching your query.</p>
+    {% endif %}
+</div>
+{% endblock content %}

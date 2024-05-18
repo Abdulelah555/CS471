@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task, CheckList
 from .forms import TaskForm, CheckListForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 # Create your views here.
 
 def index(request):
@@ -96,3 +97,11 @@ def delete_checklist(request, tId, cId):
         return redirect('task', tId=tId)
     return render(request, 'bookmodule/delete_checklist.html', {'checklist_item': checklist_item, 'task_id': tId})
 
+@login_required
+def search(request):
+    query = request.GET.get('query')
+    tasks = Task.objects.filter(
+        Q(user=request.user) & 
+        (Q(title__icontains=query) | Q(description__icontains=query))
+    )
+    return render(request, 'bookmodule/search_results.html', {'tasks': tasks, 'query': query})

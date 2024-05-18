@@ -33,4 +33,5 @@ urlpatterns = [
     path('createchecklist/<int:tId>/', views.createchecklist, name='createchecklist'),
     path('editchecklist/<int:tId>/<int:cId>/', views.editchecklist, name='editchecklist'),
     path('deletechecklist/<int:tId>/<int:cId>/', views.delete_checklist, name='delete_checklist'),
+    path('search/', views.search, name='search'),
 ]
